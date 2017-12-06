@@ -1,0 +1,220 @@
+#app {
+	font-family: 'Avenir', Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-align: center;
+	position:relative;
+}
+* {
+	font-family: "amplesoft", arial, sans-serif;
+	font-size: 15px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	padding:0px;
+	margin:0px;
+	outline:0px;
+}
+html{
+	transition:ease-in-out .2s;
+	height:100vh;
+	width:100vw;
+}
+
+/*
+ 	Background
+ */
+ @keyframes bg_transform {
+ 	0% { background-color:#fbf1f1; }
+ 	25% { background-color:#f1f1fb; }
+ 	50% { background-color:#f1fbfb; }
+ 	75% { background-color:#fbfbf1; }
+ 	100% { background-color:#fbf1f1; }
+ }
+.main-fixed{
+	height:100vh;
+	width:100vw;
+	position: fixed;
+	top:0px;
+	left:0px;
+	z-index:-1;
+	overflow:hidden;
+	animation-name: bg_transform;
+	animation-timing-function: linear;
+	animation-duration: 60s;
+	animation-iteration-count: infinite;
+}
+.bg-line-top,.bg-line-bottom{
+	z-index:1;
+	background-color:#000;
+	display:block;
+	height:1px;
+	border:0px;
+	width:500px;
+	position:absolute;
+	transform:rotate(-45deg);
+	animation-duration: 20s;
+	animation-direction: alternate-reverse;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	opacity: 0.2;
+}
+.circle {
+	z-index:1;
+	position:absolute;
+	background-color:#ffffff;
+	display:block;
+	animation-duration: .75s;
+	animation-direction: alternate-reverse;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+@keyframes moveCircleCircular{
+	from { left: 140px; top: 190px; }
+	to { left: 160px; top: 220px; }
+}
+@keyframes moveCircleCircularAlt{
+	from { right: 100px; top: 360px; }
+	to { right: 120px; top: 380px; }
+}
+.circle-top{
+	animation-name: moveCircleCircular;
+	width:60px;
+	height:60px;
+	border-radius:30px;
+}
+.circle-bottom{
+	animation-name: moveCircleCircularAlt;
+	width:120px;
+	height:120px;
+	border-radius:60px;
+}
+@keyframes moveCircular {
+	from { left:200px; }
+	to { left:50px; }
+}
+@keyframes moveCircularAlt {
+	from { right: 200px; }
+	to { right: 50px; }
+}
+.bg-line-top{
+	left:100px;
+	top:10px;
+	animation-name:moveCircular;
+}
+.bg-line-bottom{
+	right:100px;
+	bottom:0px;
+	animation-name:moveCircularAlt;
+}
+@keyframes moveBoxCircular{
+	from { transform:rotate(75deg); left: 250px;}
+	to { transform:rotate(25deg); left : 150px;}
+}
+.boxes {
+	border-radius:16px;
+	background-color:#fff;
+	display:block;
+	position:absolute;
+	z-index:1;
+	animation-duration: .75s;
+	animation-direction: alternate-reverse;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+.first-box{
+	animation-name: moveBoxCircular;
+	height: 140px;
+	width: 140px;
+	left: 230px;
+	bottom:-40px;
+}
+
+/*
+	Content here
+*/
+#main{text-align:center;}
+.page {
+	height:100vh;
+	width:80%;
+	margin-left:10%;
+	position:relative;
+	border:0px solid #fff;
+}
+.home-box{
+	height:640px;
+	background-color:#fff;
+	border-radius:16px;
+	width:360px;
+	margin: 40px auto;
+}
+.top-links {
+	list-style: none;
+	margin-top:20px;
+}
+.top-links li{
+	display:inline-block;
+	padding:10px 20px;
+}
+.top-links li a{
+	text-decoration: none;
+	color: #444444;
+	cursor: pointer;
+}
+.home-title {
+	font-family: "amplesoftbold", arial, sans-serif;
+	font-size:56px;
+	color:#555;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+}
+.home-subtitle {
+	font-family: "amplesoftlight", arial, sans-serif;
+	font-size:46px;
+	color:#777;
+	top:60px;
+	left:0px;
+}
+.home-title, .home-subtitle {
+	position:absolute;
+}
+.home-description{
+	font-size:20px;
+	color:#222;
+	text-align:left;
+	margin-top:40px;
+	position:absolute;
+	left: 0px;
+	top: 140px;
+}
+.home-content{
+	position:absolute;
+	top:280px;
+	left:200px;
+	width:1200px;
+	text-align:left;
+}
+.profile-box{
+	position: absolute;
+	top:200px;
+	height:200px;
+	width:200px;
+	border-radius:20px;
+	background-color:#fff;
+	left: calc(100%/1.5);
+	overflow:hidden;
+}
+.profile-box img{
+	max-width:100%;
+	padding:20px;
+}
+.page-2 {
+	height:1200px;
+	width:100%;
+	background-color:#000;
+	position:absolute;
+	top:100vh;
+}
+.shadow {
+	box-shadow:0px 10px 20px rgba(0,0,0,0.028);
+}
