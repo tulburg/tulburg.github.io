@@ -1,18 +1,22 @@
 <template>
   <div id="app">
     <div id="main">
-      <Background/>
       <router-view></router-view>
     </div>
   </div>
 </template>
 
 <script>
-import Background from "@/components/Background"
-export default {
-  name: 'app',
-  components : { Background }
-}
+	
+	import '@/assets/css/main.scss'
+	import '@/assets/fonts/HKGrotesk/stylesheet.css'
+	import '@/assets/fonts/Simplifica/stylesheet.css'
+	import '@/assets/fonts/New/stylesheet.css'
+
+	export default {
+	  name: 'app',
+	  components : {  }
+	}
+
 </script>
 
-<style src="./assets/css/main.css" />

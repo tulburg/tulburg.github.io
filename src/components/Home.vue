@@ -1,43 +1,56 @@
 <template>
-	<div class="page">
-		<div>
-			<ul class="top-links">
-				<li v-for="link in links">
-					<a :href="link.href">{{ link.title }}</a>
-				</li>
-			</ul>
-		</div>
-		<div class="home-content">
-			<transition name="fade" mode="out-in" appear="true">
-				<div class="home-title">Walk in the highway</div>
-			</transition>
-			<div class="home-subtitle">move in the right direction</div>
-			<div class="home-description">
-				there's a time and place for <br/>
-				for everything, when the time is right, <br/>
-				everything works together for the<br/>
-				better
+	<div class="Home">
+		<!-- <Header /> -->
+		
+<!-- 		<section class="menu">
+			<div class="photo" v-on:mouseover="showDropUp = true" v-on:mouseleave="showDropUp = false">
+				<img src="../assets/img/pics.jpg" alt="profile photo">
 			</div>
-		</div>
-		<div class="profile-box shadow">
-			<img src="../assets/img/passport.png" />
-		</div>
-		<!-- <div class="home-box shadow"></div> -->
-		<div class="page-2"></div>
+			<svg width="100%" height="100%" viewBox="-1 -1 103 103">
+        <circle cx="51" cy="51" r="49" :class="(showDropUp) ? 'active' : ''" />
+    	</svg>
+			<div :class="(showDropUp) ? 'active' : ''" class="dropup" v-on:mouseover="showDropUp = true" v-on:mouseleave="showDropUp = false">
+
+			</div>
+		</section> -->
+		<section class="quotes">
+			<div class="card" v-for="quote in quotes">
+				<div class="content">
+					<h1>{{ quote.quote }}</h1>
+					<div class="details">
+						<span class="date">{{ quote.date }}</span>
+						<span class="tag">{{ quote.tag }}</span>
+					</div>
+				</div>
+			</div>
+		</section>
 	</div>
 </template>
 
 <script>
-export default {
-	name: 'Home',
-	data() {
-		return {
-			links : [
-				{ title:"blog", href:"/blog" },
-				{ title: "contact me", href: "/contact" },
-				{ title: "projects", href: "/projects"}
-			]
+
+	import { Header } from '@/components/sub';
+	import json from '../../src/quotes.json';
+
+	export default {
+		name: 'Home',
+		components: { Header },
+		data() {
+			return {
+				showDropUp: false,
+				links : [
+					{ title: "boq", href: "/boq" },
+					{ title:"blog", href:"/blog" },
+					{ title: "contact me", href: "/contact" },
+					{ title: "projects", href: "/projects"}
+				],
+				ready: false,
+				quotes: []
+			}
+		},
+
+		mounted(){
+			this.quotes = json;
 		}
 	}
-}
 </script>
